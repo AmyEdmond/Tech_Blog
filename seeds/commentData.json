@@ -1,0 +1,17 @@
+[
+    {
+      "post_id": 1,
+      "comment_desc": "Real beauty is to be true to oneself. That's what makes me feel good. — Laetitia Casta",
+      "user_id": 1
+    },
+    {
+      "post_id": 2,
+      "comment_desc": "Music is music, ultimately. If it makes you feel good, cool. — Prince",
+      "user_id": 2
+    },
+    {
+      "post_id": 3,
+      "comment_desc": "You are off to great places, today is your day. Your mountain is waiting, so get on your way. — Dr. Seuss",
+      "user_id": 3
+    }
+  ]
