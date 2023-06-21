@@ -1,17 +1,17 @@
 [
     {
       "post_id": 1,
-      "comment_description": "Real beauty is to be true to oneself. That's what makes me feel good. — Laetitia Casta",
+      "comment_description": "It is only when they go wrong that machines remind you how powerful they are. - Clive James",
       "user_id": 1
     },
     {
       "post_id": 2,
-      "comment_description": "Music is music, ultimately. If it makes you feel good, cool. — Prince",
+      "comment_description": "The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life. - Bill Gates",
       "user_id": 2
     },
     {
       "post_id": 3,
-      "comment_description": "You are off to great places, today is your day. Your mountain is waiting, so get on your way. — Dr. Seuss",
+      "comment_description": "The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past. - Tim Berners-Lee",
       "user_id": 3
     }
   ]

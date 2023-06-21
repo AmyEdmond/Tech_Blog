@@ -1,5 +1,34 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
+
+router.get('/', async(req,res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+    });
+
+  res.status(200).json(userData);
+  }catch(err) {
+      res.status(500).json({message: "Something went wrong"})
+  };
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      attributes: { exclude: ['password'] },
+      where: { id: req.params.id },
+      include: [{ model: Post},{model: Comment}]
+    });
+    if (userData[0] === 0) {
+      res.status(404).json({ message: 'No user with this id!'});
+      return;
+    }
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json({message: "Something went wrong"});
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
@@ -46,20 +75,6 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
-
-router.post('/signup', async (req, res) => {
-  try {
-    const newSignup = await User.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newSignup);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-  
 });
 
 router.post('/logout', (req, res) => {

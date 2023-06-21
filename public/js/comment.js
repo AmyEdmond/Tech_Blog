@@ -1,7 +1,9 @@
 const commentFormHandler = async function(event) {
     event.preventDefault();
-        const post_id = document.querySelector('.newCommentForm').dataset.postid;
-    const commentDescription = document.querySelector('#commentDescription').value.trim();
+        const commentDescription = document.querySelector('input[name="commentBody"]').value.trim();
+        const post_id = window.location.toString().split('/')[
+          window.location.toString().split('/').length - 1
+        ];
     if (commentDescription) {
       await fetch('/api/comments', {
         method: 'POST',
@@ -14,7 +16,9 @@ const commentFormHandler = async function(event) {
         }
       });
       document.location.reload();
-    }
+    } else {
+      alert(response.statusText);
+  }
   };
   document
     .querySelector('.newCommentForm')
