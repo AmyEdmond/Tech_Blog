@@ -3,10 +3,8 @@
 
 ## Description
 
-The goal for this challenge was to create a tech blog
+The goal for this challenge was to create a CMS-style blog site so I can publish articles, blog posts and thoughts and opinions about tech.
 
-<!-- Watch this [InitiateDemo](https://watch.screencastify.com/v/MYJCHk116GPjALOLbT0R).
-        [InsomniaDemo](https://watch.screencastify.com/v/uktXfQS5MQxEal4C9DKP) -->
 
 ## Table of Contents
 
@@ -23,7 +21,7 @@ The goal for this challenge was to create a tech blog
 
 * Copy the SSH link within this repo located under the green "Code" button.
 * Clone the repo within GitBash by using the command "git clone `paste link here`"
-* Run the command `npm install` to create a package.json file.
+* Run the command `npm init` to create a package.json file.
 * Run the command `npm install` to get the dependencies installed.
 * Run the command `npm install dotenv` and create a .env file to store environment variables.
 * Run the command `mysql -u root -p` to initiate mysql.
