@@ -195,9 +195,21 @@
   }
   
   .nav {
+    display: flex;
     padding: 10px;
     line-height: 1.25;
     float: top;
+  }
+  .nav a {
+    color: var(--light);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .nav a:hover {
+    color: var(--secondary);
+    background-color: var(--dark);
   }
   
   footer {

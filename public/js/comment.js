@@ -20,6 +20,4 @@ const commentFormHandler = async function(event) {
       alert(response.statusText);
   }
   };
-  document
-    .querySelector('.newCommentForm')
-    .addEventListener('submit', commentFormHandler);
+  document.querySelector('.newCommentForm').addEventListener('submit', commentFormHandler);
