@@ -16,14 +16,15 @@
         <a href="/">Home</a>
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/dashboard">Dashboard</a> |
-        <button class="btn-no-style logout" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <button id="home" class="btn btn-primary">Home</button>
+    
+    <button id="dashboard" class="btn btn-primary">dashboard</button>
+    {{#unless loggedIn}}
+    
+    <button id="login" class="btn btn-primary">Login</button>
+    {{/unless}}
+    <button id="logout" class="btn btn-primary">Logout</button>
+  </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
