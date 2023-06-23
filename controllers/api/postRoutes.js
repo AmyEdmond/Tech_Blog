@@ -6,14 +6,31 @@ const withAuth = require('../../utils/auth');
 router.get('/', async(req,res) => {
   try {
     const postData = await Post.findAll({
-      include:[{ model: User }, { model: Comment }]
-    });
+      
+      include:[{ model: User, attributes: { exclude: ['password']}}, { model: Comment }]
+    
+  });
 
   res.status(200).json(postData);
   }catch(err) {
       res.status(500).json({message: "Something went wrong"})
   };
 });
+
+// router.get('/users/:user_id', async(req,res) => {
+//   try {
+//     const postData = await Post.findAll({
+//       where: {
+//         user_id: req.params.user_id,
+//     },include:[{ model: User, attributes: { exclude: ['password'] }}, { model: Comment }]
+//     });
+
+//   res.status(200).json(postData);
+//   }catch(err) {
+//     console.log(err);
+//       res.status(500).json({message: "Something went wrong"})
+//   };
+// });
 
 // Get a single post
 router.get('/:id', async(req, res) => {
@@ -72,6 +89,7 @@ router.post('/:id', withAuth, async (req, res) => {
 
 //Delete a post
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log(req.params.id);
   try {
     const postData = await Post.destroy({
       where: {

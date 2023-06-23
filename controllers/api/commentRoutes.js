@@ -15,35 +15,33 @@ router.get('/', async (req,res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const commenttData = await Comment.create({
-      post_id: req.body.post_id,
-      comment_description: req.body.comment_description,
-      user_id: req.session.user_id
-  }); 
-    res.status(200).json(commenttData);;
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newComment);
   } catch (err) {
     res.status(500).json({message: "Something went wrong"});
   }
 });
 
-router.post('/:id', withAuth, async (req, res) => {
-  try {
-    const commenttData = await Comment.update({
-      comment_description: req.body.comment_description,
-    },
-    { where: {
-      id: req.params.id,
-  },
-  }); 
-  if (!commenttData) {
-    res.status(404).json({ message: 'No comment with this id!'});
-    return;
-  }
-  res.json(commenttData);
-} catch (err) {
-  res.status(500).json({message: "Something went wrong"});
-}
-});
+// router.put('/:id', withAuth, async (req, res) => {
+//   try {
+//     const commenttData = await Comment.update({
+//      where: {
+//       comment_id: req.params.id,
+//   },
+//   }); 
+//   if (!commenttData) {
+//     res.status(404).json({ message: 'No comment with this id!'});
+//     return;
+//   }
+//   res.json(commenttData);
+// } catch (err) {
+//   res.status(500).json({message: "Something went wrong"});
+// }
+// });
   
 
 router.delete('/:id', withAuth, async (req, res) => {
@@ -51,6 +49,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     const commentData = await Comment.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id
         
       },
     });
@@ -63,4 +62,9 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/", async (req, res) => {
+  res.render("all", { Comment });
+});
+
 module.exports = router;

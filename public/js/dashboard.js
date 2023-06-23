@@ -1,8 +1,8 @@
 const newFormHandler = async function(event){
     event.preventDefault();
 
-    const postTitle = document.querySelector('input[name="postTitle"]').value;
-    const description = document.querySelector('textarea[name="description"]').value.trim();
+    const postTitle = document.querySelector("#postTitle").value;
+    const description = document.querySelector("#description").value.trim();
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -27,8 +27,8 @@ const newFormHandler = async function(event){
 const editFormHandler = async function(event) {
     event.preventDefault();
   
-    const postTitle = document.querySelector('input[name="postTitle"]').value.trim();
-    const description = document.querySelector('input[name="description"]').value.trim();
+    const postTitle = document.querySelector("#postTitle").value.trim();
+    const description = document.querySelector("#description").value.trim();
   
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
@@ -57,10 +57,8 @@ const editFormHandler = async function(event) {
 const deleteFormHandler = async function(event) {
     event.preventDefault();
   
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-  
+    const id = document.querySelector('[data-id]').getAttribute('data-id');
+  console.log(id);
     const response = await fetch(`/api/post/${id}`, {
       method: 'DELETE',
       body: JSON.stringify({
@@ -80,6 +78,6 @@ const deleteFormHandler = async function(event) {
   
 
   document.querySelector('.newPostForm').addEventListener('submit', newFormHandler);
-  document.querySelector('.editPostForm').addEventListener('submit', editFormHandler);
+  
 
   document.querySelector('.deletePostBtn').addEventListener('click', deleteFormHandler);
