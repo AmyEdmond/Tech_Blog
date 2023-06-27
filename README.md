@@ -4,6 +4,7 @@
 ## Description
 
 The goal for this challenge was to create a CMS-style blog site so I can publish articles, blog posts and thoughts and opinions about tech.
+
 Link to the deployed app:
 https://blogtechbootcamp-52014f61b423.herokuapp.com/
 
