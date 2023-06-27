@@ -4,7 +4,8 @@
 ## Description
 
 The goal for this challenge was to create a CMS-style blog site so I can publish articles, blog posts and thoughts and opinions about tech.
-
+Link to the deployed app:
+https://blogtechbootcamp-52014f61b423.herokuapp.com/
 
 ## Table of Contents
 
@@ -32,7 +33,8 @@ The goal for this challenge was to create a CMS-style blog site so I can publish
 
 Within the directory, the server is started by using the command `npm start`.
 
-![image](coming soon)
+![image](https://github.com/AmyEdmond/Tech_Blog/assets/122325607/ee7a8de0-c62c-4fb3-8814-5cb9d3347368)
+![image](https://github.com/AmyEdmond/Tech_Blog/assets/122325607/67728a21-a051-4d5f-af38-a55afb8f254f)
 
 ## Technologies
 

@@ -27,7 +27,7 @@
       {{#each post.comments as |comment| }}
       <p>
       {{comment.comment_description}}
-      <p>Created by {{post.user.username}} on {{format_date post.date_created}}</p>
+      <p>Created by {{user.username}} on {{format_date post.date_created}}</p>
       </p>
       {{/each}}
     </p>
