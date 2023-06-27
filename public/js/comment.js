@@ -1,21 +1,35 @@
 const commentFormHandler = async function(event) {
     event.preventDefault();
-        const commentDescription = document.querySelector('#comment_description').value.trim();
-        const postId = document.querySelector('[data-id]').getAttribute('data-id');
+    console.log(event);
+    const postId = event.target.dataset.id;
+    const commentDescription = document.getElementById("comment-" + postId).value.trim();
+        
     if (commentDescription) {
-      await fetch('/api/comments', {
+      const response = await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
-          postId,
-          commentDescription
+          post_id: postId,
+          comment_description: commentDescription
         }),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        redirect: "manual"
       });
-      document.location.reload();
+      
+      if (response.status === 0) {
+        document.location="/login";
+      }
+     document.location.reload();
     } else {
       alert(response.statusText);
   }
   };
-  document.querySelector('.newCommentForm').addEventListener('submit', commentFormHandler);
+  const forms = document.querySelectorAll('.newCommentForm');
+  
+    for (let i=0; i<forms.length; i++) {
+    const form = forms[i];
+    console.log(form);
+    form.addEventListener("submit", commentFormHandler);
+  }
+  
